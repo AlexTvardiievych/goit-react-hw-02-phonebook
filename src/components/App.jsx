@@ -17,15 +17,6 @@ export default class App extends Component {
         filter: '',
     };
 
-    handleChange = e => {
-        const value = e.target.value;
-        const name = e.target.name;
-
-        this.setState({
-            [name]: value,
-        });
-    };
-
     addContact = data => {
         const { name, number } = data;
         const { contacts } = this.state;
@@ -45,11 +36,12 @@ export default class App extends Component {
         }
         else {
             if (name === '' && number === '') {
+                alert('Please, fill empty fields');
                 return;
             }
 
             if (name === '' || number === '') {
-                alert('Pleasy fill empty fields');
+                alert('Please, fill empty fields');
                 return;
             } else {
                 this.setState(prev => ({
